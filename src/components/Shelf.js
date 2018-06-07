@@ -13,8 +13,9 @@ class Shelf extends Component {
 
         var style = {
             display: "grid",
-            gridTemplateColumns: "200px 200px 200px",
-            gridGap: "20px"
+            gridTemplateColumns: "repeat(auto-fill, minmax(200px, 200px)",
+
+            gridGap: "20px",
         }
 
         return(
