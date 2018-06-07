@@ -25,14 +25,33 @@ componentDidMount() {
     var shelves = ["Currently Reading", "Want To Read", "Read"]
     return (
       <div className="App">
-      {
+      {/*
         shelves.map(shelf => (
             <Shelf books={this.state.books.filter(book => {
               return book.shelf === "read"
             })} label={shelf} />
         ))
-      
-      }
+      */}
+      <Shelf 
+        books={this.state.books.filter(book => {
+          return book.shelf === "currentlyReading"
+        })} 
+        label={"Currently Reading"} 
+      />
+      <Shelf 
+        books={this.state.books.filter(book => {
+          return book.shelf === "wantToRead"
+        })} 
+        label={"Want To Read"} 
+      />
+      <Shelf 
+        books={this.state.books.filter(book => {
+          return book.shelf === "read"
+        })} 
+        label={"Read"} 
+      />
+
+
       </div>
 
     );
