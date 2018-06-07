@@ -10,10 +10,13 @@ class Book extends Component {
             width: '100px'
         }
 
+        var book = this.props.book
+
         return(
             <div>
-                <h2>Title</h2>
-                <h3>Author</h3>
+                <img src={book.imageLinks.thumbnail} alt=""/>
+                <h2>{book.title}</h2>
+                <h3>{book.shelf}</h3>
             </div>
         )
     }
