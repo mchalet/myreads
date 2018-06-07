@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Card from '@material-ui/core/Card'
+
 class Book extends Component {
 
     
@@ -13,11 +15,11 @@ class Book extends Component {
         var book = this.props.book
 
         return(
-            <div>
+            <Card>
                 <img src={book.imageLinks.thumbnail} alt=""/>
                 <h2>{book.title}</h2>
                 <h3>{book.shelf}</h3>
-            </div>
+            </Card>
         )
     }
 }

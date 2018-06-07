@@ -31,10 +31,8 @@ componentDidMount() {
               return book.shelf === "read"
             })} label={shelf} />
         ))
-
       
       }
-
       </div>
 
     );
