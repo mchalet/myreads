@@ -17,7 +17,8 @@ class Shelf extends Component {
 
     static propTypes = {
         books: PropTypes.array.isRequired,
-        label: PropTypes.string.isRequired
+        label: PropTypes.string.isRequired,
+        handleUpdateBooks: PropTypes.func.isRequired
     }
 
     render() {
@@ -30,12 +31,12 @@ class Shelf extends Component {
                 <h1>{this.props.label}</h1>
                 <div style={shelfStyle}>
                     {
-                        books.map(book => (
-                            <div key={book.title}>
+                        books.map((book, index) => (
                                 <Book 
-                                    book={book} 
+                                    book={book}
+                                    key={index}
+                                    handleUpdateBooks={this.props.handleUpdateBooks} 
                                 />
-                            </div>
                         ))
                     }
                 </div>
