@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {PropTypes} from 'prop-types'
+import { PropTypes } from 'prop-types'
 
 import Book from './Book'
 
@@ -16,7 +16,8 @@ class Shelf extends Component {
     }
 
     static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        label: PropTypes.string.isRequired
     }
 
     render() {
@@ -32,8 +33,7 @@ class Shelf extends Component {
                         books.map(book => (
                             <div key={book.title}>
                                 <Book 
-                                    book={book}
-                                    click={this.props.click} 
+                                    book={book} 
                                 />
                             </div>
                         ))
