@@ -1,26 +1,20 @@
 import React, { Component } from 'react'
 
 import Card from '@material-ui/core/Card'
-import SimpleMenu from './SimpleMenu'
 
 class Book extends Component {
 
     
     render() {
-        var style = {
-            background: 'red',
-            height: '200px',
-            width: '100px'
-        }
-
         var book = this.props.book
 
         return(
             <Card>
-                <img src={book.imageLinks.thumbnail} alt=""/>
+                <img src={book.imageLinks.thumbnail} height="200" width="130" alt=""/>
                 <h2>{book.title}</h2>
                 <h3>{book.shelf}</h3>
-                <SimpleMenu />
+                <h3>{book.id}</h3>
+                <button onClick={this.props.click}>Read</button>
             </Card>
         )
     }
