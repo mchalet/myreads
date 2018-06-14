@@ -14,7 +14,8 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      books: []
+      books: [],
+      query: ''
     };
   }
 
