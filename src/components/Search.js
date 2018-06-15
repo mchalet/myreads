@@ -1,22 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
-class Search extends Component {
-    state = {
-        query: ''
-    }
-    handleInput = (event) => {
-        var value = event.target.value
-        this.setState({
-            query: value
-        })
-    }
+import Book from "./Book";
 
-    render() {
-        return(
-            <input type="text" onChange={this.handleInput}/>
-        )
-    }
+class Search extends Component {
+  state = {
+    books: [],
+    query: ""
+  };
+  handleInputChange = event => {
+    var value = event.target.value;
+    this.setState({ query: value });
+    this.handleSearch(value);
+  };
+  handleSearch = query => {
+    BooksAPI.search(query).then(books => {
+      this.setState({
+        books: books
+      });
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <input
+          type="text"
+          value={this.state.query}
+          onChange={this.handleInputChange}
+        />
+        {this.state.books.map(book => <Book book={book} />)}
+      </div>
+    );
+  }
 }
 
-export default Search
+export default Search;

@@ -6,7 +6,7 @@ import update from "immutability-helper";
 
 import Book from "./components/Book";
 import Shelf from "./components/Shelf";
-import Search from "./components/Search"
+import Search from "./components/Search";
 
 import Button from "@material-ui/core/Button";
 
@@ -15,7 +15,7 @@ class App extends Component {
     super();
     this.state = {
       books: [],
-      query: ''
+      query: ""
     };
   }
 
@@ -28,8 +28,8 @@ class App extends Component {
   };
 
   handleUpdateBooks = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(() => this.handleGetBooks())
-  }
+    BooksAPI.update(book, shelf).then(() => this.handleGetBooks());
+  };
 
   render() {
     var style = {
