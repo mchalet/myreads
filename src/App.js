@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route } from 'react-router-dom'
 import logo from "./logo.svg";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
@@ -45,6 +46,11 @@ class App extends Component {
             })} label={shelf} />
         ))
       */}
+      <Route path='/search' render={() => (
+        <Search />
+      )} />
+      <Route exact path='/' render={() => (
+        <React.Fragment>
         <Shelf
           books={this.state.books.filter(book => {
             return book.shelf === "currentlyReading";
@@ -66,7 +72,8 @@ class App extends Component {
           label={"Read"}
           handleUpdateBooks={this.handleUpdateBooks}
         />
-        <Search />
+        </React.Fragment>
+      )} />
       </div>
     );
   }

@@ -29,7 +29,7 @@ class Search extends Component {
           value={this.state.query}
           onChange={this.handleInputChange}
         />
-        {this.state.books.map(book => <Book book={book} />)}
+        {this.state.books.map((book, index) => <Book book={book} key={index} />)}
       </div>
     );
   }

@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import Card from "@material-ui/core/Card";
 
 var cardStyle = {
-  margin: "20px"
+  margin: "20px",
 };
 
 class Book extends Component {
