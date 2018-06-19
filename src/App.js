@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from 'react-router-dom'
+import { Route, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
@@ -46,34 +46,37 @@ class App extends Component {
             })} label={shelf} />
         ))
       */}
-      <Route path='/search' render={() => (
-        <Search />
-      )} />
-      <Route exact path='/' render={() => (
-        <React.Fragment>
-        <Shelf
-          books={this.state.books.filter(book => {
-            return book.shelf === "currentlyReading";
-          })}
-          label={"Currently Reading"}
-          handleUpdateBooks={this.handleUpdateBooks}
+        <Route path="/search" render={() => <Search />} />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <React.Fragment>
+              <Link to='/search'>Search</Link>
+              <Shelf
+                books={this.state.books.filter(book => {
+                  return book.shelf === "currentlyReading";
+                })}
+                label={"Currently Reading"}
+                handleUpdateBooks={this.handleUpdateBooks}
+              />
+              <Shelf
+                books={this.state.books.filter(book => {
+                  return book.shelf === "wantToRead";
+                })}
+                label={"Want To Read"}
+                handleUpdateBooks={this.handleUpdateBooks}
+              />
+              <Shelf
+                books={this.state.books.filter(book => {
+                  return book.shelf === "read";
+                })}
+                label={"Read"}
+                handleUpdateBooks={this.handleUpdateBooks}
+              />
+            </React.Fragment>
+          )}
         />
-        <Shelf
-          books={this.state.books.filter(book => {
-            return book.shelf === "wantToRead";
-          })}
-          label={"Want To Read"}
-          handleUpdateBooks={this.handleUpdateBooks}
-        />
-        <Shelf
-          books={this.state.books.filter(book => {
-            return book.shelf === "read";
-          })}
-          label={"Read"}
-          handleUpdateBooks={this.handleUpdateBooks}
-        />
-        </React.Fragment>
-      )} />
       </div>
     );
   }
