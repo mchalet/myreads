@@ -41,7 +41,10 @@ class App extends Component {
             })} label={shelf} />
         ))
       */}
-        <Route path="/search" render={() => <Search />} />
+        <Route
+          path="/search"
+          render={() => <Search handleUpdateBooks={this.handleUpdateBooks} />}
+        />
         <Route
           exact
           path="/"

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
-import Book from "./Book";
+import Shelf from "./Shelf";
 
 class Search extends Component {
   state = {
@@ -29,7 +29,7 @@ class Search extends Component {
           value={this.state.query}
           onChange={this.handleInputChange}
         />
-        {this.state.books.map((book, index) => <Book book={book} key={index} />)}
+        <Shelf books={this.state.books} handleUpdateBooks={this.props.handleUpdateBooks} />
       </div>
     );
   }
