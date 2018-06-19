@@ -11,10 +11,6 @@ var shelfStyle = {
 };
 
 class Shelf extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   static propTypes = {
     books: PropTypes.array.isRequired,
     label: PropTypes.string.isRequired,

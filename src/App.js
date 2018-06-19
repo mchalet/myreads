@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
-import update from "immutability-helper";
 
-import Book from "./components/Book";
 import Shelf from "./components/Shelf";
 import Search from "./components/Search";
-
-import Button from "@material-ui/core/Button";
 
 class App extends Component {
   constructor(props) {
@@ -52,7 +47,7 @@ class App extends Component {
           path="/"
           render={() => (
             <React.Fragment>
-              <Link to='/search'>Search</Link>
+              <Link to="/search">Search</Link>
               <Shelf
                 books={this.state.books.filter(book => {
                   return book.shelf === "currentlyReading";
