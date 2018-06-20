@@ -5,7 +5,7 @@ import Book from "./Book";
 
 var shelfStyle = {
   display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 200px)",
+  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 200px))",
   gridGap: "20px",
   justifyItems: "end"
 };

@@ -13,9 +13,19 @@ class Book extends Component {
     handleUpdateBooks: PropTypes.func.isRequired
   };
 
+  state = {
+    book: this.props.book
+  }
+
   handleChangeShelf = e => {
+    var newShelf = e.target.value;
+    this.props.book.shelf = newShelf;
+    this.setState({
+      book: this.props.book
+    })
     this.props.handleUpdateBooks(this.props.book, e.target.value);
   };
+
   render() {
     var book = this.props.book;
 

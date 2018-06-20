@@ -7,7 +7,7 @@ import Shelf from "./components/Shelf";
 import Search from "./components/Search";
 
 class App extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       books: [],

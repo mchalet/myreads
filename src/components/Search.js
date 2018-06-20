@@ -55,7 +55,7 @@ class Search extends Component {
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
         {
-          this.state.query.length > 0 && (
+          this.state.books.length > 0 && (
             <React.Fragment>
               <div>Sorry, no results</div>
               <p>Please try searching for one of these terms:</p>
