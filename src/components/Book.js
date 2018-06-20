@@ -4,8 +4,12 @@ import { PropTypes } from "prop-types";
 import Card from "@material-ui/core/Card";
 
 var cardStyle = {
-  margin: "20px"
+  margin: "20px",
 };
+
+var authorStyle = {
+  margin: 5
+}
 
 class Book extends Component {
   static propTypes = {
@@ -39,6 +43,12 @@ class Book extends Component {
             alt=""
           />
           <h2>{book.title}</h2>
+          {
+            
+            book.authors.map(author => (
+              <h4 style={authorStyle}>{author}</h4>
+            ))
+          }
           <select onChange={this.handleChangeShelf} value={book.shelf}>
             <option value="none" disabled>
               Move to...
