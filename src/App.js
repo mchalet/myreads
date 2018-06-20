@@ -31,19 +31,11 @@ class App extends Component {
     var style = {
       margin: "50px"
     };
-    // var shelves = ["Currently Reading", "Want To Read", "Read"]
     return (
       <div className="App" style={style}>
-        {/*
-        shelves.map(shelf => (
-            <Shelf books={this.state.books.filter(book => {
-              return book.shelf === "read"
-            })} label={shelf} />
-        ))
-      */}
         <Route
           path="/search"
-          render={() => <Search handleUpdateBooks={this.handleUpdateBooks} />}
+          render={() => <Search bookMaster={this.state.books} handleUpdateBooks={this.handleUpdateBooks} />}
         />
         <Route
           exact

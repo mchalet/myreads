@@ -29,6 +29,7 @@ class Shelf extends Component {
               book={book}
               key={index}
               handleUpdateBooks={this.props.handleUpdateBooks}
+              bookMaster={this.props.bookMaster}
             />
           ))}
         </div>
