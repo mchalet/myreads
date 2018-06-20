@@ -20,21 +20,22 @@ class Search extends Component {
   handleSearch = query => {
     query.length != 0 &&
       BooksAPI.search(query).then(books => {
-        const results = books.map(book => {
-          const existingBook = this.props.bookMaster.find(
-            addedBook => addedBook.id === book.id
-          );
-          book.shelf = !!existingBook ? existingBook.shelf : "none";
-          return book;
-        });
-
-        books.length > 0
+        if (!!books && books.length) {
+          const results = books.map(book => {
+            const existingBook = this.props.bookMaster.find(
+              addedBook => addedBook.id === book.id
+            );
+            book.shelf = !!existingBook ? existingBook.shelf : "none";
+            return book;
+          });
+          books.length > 0
           ? this.setState({
-              books: books
+              books: results
             })
           : this.setState({
               books: []
             });
+        }
       });
   };
 
@@ -53,8 +54,31 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {this.state.books.length === 0 &&
-          this.state.query.length > 0 && <div>Sorry, no results</div>}
+        {
+          this.state.query.length > 0 && (
+            <React.Fragment>
+              <div>Sorry, no results</div>
+              <p>Please try searching for one of these terms:</p>
+              <p>
+                'Android', 'Art', 'Artificial Intelligence', 'Astronomy',
+                'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography',
+                'Brief', 'Business', 'Camus', 'Cervantes', 'Christie',
+                'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai',
+                'Design', 'Development', 'Digital Marketing', 'Drama',
+                'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy',
+                'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future',
+                'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen',
+                'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn',
+                'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money',
+                'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography',
+                'Poetry', 'Production', 'Programming', 'React', 'Redux',
+                'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction',
+                'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time',
+                'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web
+                Development', 'iOS'
+              </p>
+            </React.Fragment>
+          )}
       </div>
     );
   }
