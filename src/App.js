@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Header from './components/Header';
 import Shelf from "./components/Shelf";
@@ -33,6 +34,8 @@ class App extends Component {
       margin: "0 20px 0 20px"
     };
     return (
+      <React.Fragment>
+      <CssBaseline/>
       <div className="App">
         <Header />
         <div className="header-container" style={style}>
@@ -72,6 +75,7 @@ class App extends Component {
           />
         </div>
       </div>
+    </React.Fragment>
     );
   }
 }

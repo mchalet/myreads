@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
+import Typography from '@material-ui/core/Typography';
+import withTheme from '@material-ui/core/styles/withTheme';
+
 import Card from "@material-ui/core/Card";
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -48,11 +51,11 @@ class Book extends Component {
             width="130"
             alt=""
           />
-          <h2>{book.title}</h2>
+          <Typography variant="title">{book.title}</Typography>
           {
             
             book.authors.map(author => (
-              <h4 style={authorStyle}>{author}</h4>
+              <Typography variant="subheading">{author}</Typography>
             ))
           }
           <form autoComplete="off">
