@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
 import Card from "@material-ui/core/Card";
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 var cardStyle = {
   margin: "20px",
@@ -49,15 +55,23 @@ class Book extends Component {
               <h4 style={authorStyle}>{author}</h4>
             ))
           }
-          <select onChange={this.handleChangeShelf} value={book.shelf}>
-            <option value="none" disabled>
-              Move to...
-            </option>
-            <option value="currentlyReading">Currently Reading</option>
-            <option value="wantToRead">Want to Read</option>
-            <option value="read">Read</option>
-            <option value="none">None</option>
-          </select>
+          <form autoComplete="off">
+            <FormControl>
+              <Select
+                value={book.shelf}
+                onChange={this.handleChangeShelf}
+                inputProps={{
+                  name: 'age',
+                  id: 'age-simple',
+                }}
+              >
+                <MenuItem value="currentlyReading">Currently Reading</MenuItem>
+                <MenuItem value="wantToRead">Want to Read</MenuItem>
+                <MenuItem value="read">Read</MenuItem>
+                <MenuItem value="none">None</MenuItem>
+              </Select>
+            </FormControl>
+          </form>
         </div>
       </Card>
     );
