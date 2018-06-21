@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 
 import Header from './components/Header';
 import BookShelf from "./components/BookShelf";

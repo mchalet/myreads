@@ -13,15 +13,21 @@ import Select from '@material-ui/core/Select';
 
 const styles = {
   card: {
-    width: 200,
-    height: 350,
+    width: 220,
+    height: 450,
     display: 'flex',
     'flex-direction': 'column',
     'justify-content': 'space-between',
   },
   media: {
-    height: 140,
-    width: "100%",
+    height: '100%',
+    width: '100%',
+  },
+  content: {
+    height: "50%",
+    display: 'flex',
+    'flex-direction': 'column',
+    'margin-bottom': 8,
   },
 };
 
@@ -49,14 +55,16 @@ class Book extends Component {
             className={classes.media}
             image={book.imageLinks.thumbnail}
           />
-          <CardContent>
-          <Typography variant="title">{book.title}</Typography>
-          {
-            
-            book.authors.map(author => (
-              <Typography variant="subheading" key={author}>{author}</Typography>
-            ))
-          }
+          <CardContent className={classes.content}>
+          <Typography variant="body1">{book.title}</Typography>
+          <div>
+            {
+              
+              book.authors.map(author => (
+                <Typography variant="body2" key={author}>{author}</Typography>
+              ))
+            }
+          </div>
           <form autoComplete="off">
             <FormControl>
               <Select
