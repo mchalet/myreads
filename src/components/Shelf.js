@@ -6,13 +6,6 @@ import Grid from "@material-ui/core/Grid";
 
 import Book from "./Book";
 
-const styles = theme => ({
-  card: {
-    height: 140,
-    width: 100
-  }
-});
-
 class Shelf extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
@@ -33,7 +26,6 @@ class Shelf extends Component {
               {books.map((book, index) => (
                 <Grid item>
                   <Book
-                    className={classes.card}
                     book={book}
                     key={index}
                     handleUpdateBooks={this.props.handleUpdateBooks}
@@ -49,4 +41,4 @@ class Shelf extends Component {
   }
 }
 
-export default withStyles(styles)(Shelf);
+export default Shelf;

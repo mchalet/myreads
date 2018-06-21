@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
+import { withStyles } from '@material-ui/core/styles';
+
 
 import Typography from '@material-ui/core/Typography';
 import Card from "@material-ui/core/Card";
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-var cardStyle = {
-  margin: "20px",
+const styles = {
+  card: {
+    width: 200,
+    height: 300,
+  },
+  media: {
+    height: 140,
+    width: "100%",
+  },
 };
-
-var authorStyle = {
-  margin: 5
-}
 
 class Book extends Component {
   static propTypes = {
@@ -35,17 +42,16 @@ class Book extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     var book = this.props.book;
 
     return (
-      <Card>
-        <div style={cardStyle}>
-          <img
-            src={book.imageLinks.thumbnail}
-            height="200"
-            width="130"
-            alt=""
+      <Card className={classes.card}>
+          <CardMedia
+            className={classes.media}
+            image={book.imageLinks.thumbnail}
           />
+          <CardContent>
           <Typography variant="title">{book.title}</Typography>
           {
             
@@ -70,10 +76,10 @@ class Book extends Component {
               </Select>
             </FormControl>
           </form>
-        </div>
+          </CardContent>
       </Card>
     );
   }
 }
 
-export default Book;
+export default withStyles(styles)(Book);
