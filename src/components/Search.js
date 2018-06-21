@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { PropTypes } from "prop-types";
 import * as BooksAPI from "../BooksAPI";
-import debounce from 'lodash/debounce';
 
 import Typography from "@material-ui/core/Typography";
 
@@ -88,5 +88,10 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  bookMaster: PropTypes.array.isRequired,
+  handleUpdateBooks: PropTypes.func.isRequired
+};
 
 export default Search;

@@ -23,11 +23,6 @@ const styles = {
 };
 
 class Book extends Component {
-  static propTypes = {
-    book: PropTypes.object.isRequired,
-    handleUpdateBooks: PropTypes.func.isRequired
-  };
-
   state = {
     book: this.props.book
   }
@@ -56,7 +51,7 @@ class Book extends Component {
           {
             
             book.authors.map(author => (
-              <Typography variant="subheading">{author}</Typography>
+              <Typography variant="subheading" key={author}>{author}</Typography>
             ))
           }
           <form autoComplete="off">
@@ -81,5 +76,10 @@ class Book extends Component {
     );
   }
 }
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  handleUpdateBooks: PropTypes.func,
+};
 
 export default withStyles(styles)(Book);

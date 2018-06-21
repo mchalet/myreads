@@ -13,11 +13,6 @@ const styles = theme => ({
 })
 
 class Shelf extends Component {
-  static propTypes = {
-    books: PropTypes.array.isRequired,
-    label: PropTypes.string.isRequired,
-    handleUpdateBooks: PropTypes.func.notRequired
-  };
 
   render() {
     const { classes } = this.props;
@@ -30,7 +25,7 @@ class Shelf extends Component {
           <Grid item xs={12}>
             <Grid container justify="center" spacing={24}>
               {books.map((book, index) => (
-                <Grid item>
+                <Grid item key={book.id}>
                   <Book
                     book={book}
                     key={index}
@@ -46,5 +41,11 @@ class Shelf extends Component {
     );
   }
 }
+
+Shelf.propTypes = {
+  books: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
+  handleUpdateBooks: PropTypes.func,
+};
 
 export default withStyles(styles)(Shelf);
