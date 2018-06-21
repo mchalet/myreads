@@ -17,21 +17,21 @@ class BookShelf extends Component {
             return book.shelf === "currentlyReading";
           })}
           label={"Currently Reading"}
-          handleUpdateBooks={this.handleUpdateBooks}
+          handleUpdateBooks={this.props.handleUpdateBooks}
         />
         <Shelf
           books={this.props.bookMaster.filter(book => {
             return book.shelf === "wantToRead";
           })}
           label={"Want To Read"}
-          handleUpdateBooks={this.handleUpdateBooks}
+          handleUpdateBooks={this.props.handleUpdateBooks}
         />
         <Shelf
           books={this.props.bookMaster.filter(book => {
             return book.shelf === "read";
           })}
           label={"Read"}
-          handleUpdateBooks={this.handleUpdateBooks}
+          handleUpdateBooks={this.props.handleUpdateBooks}
         />
       </React.Fragment>
     );

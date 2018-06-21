@@ -48,7 +48,7 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <BookShelf bookMaster={this.state.books} />
+              <BookShelf bookMaster={this.state.books} handleUpdateBooks={this.handleUpdateBooks} />
             )}
           />
         </div>

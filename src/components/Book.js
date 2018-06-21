@@ -14,7 +14,10 @@ import Select from '@material-ui/core/Select';
 const styles = {
   card: {
     width: 200,
-    height: 300,
+    height: 350,
+    display: 'flex',
+    'flex-direction': 'column',
+    'justify-content': 'space-between',
   },
   media: {
     height: 140,
