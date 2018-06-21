@@ -6,6 +6,12 @@ import Grid from "@material-ui/core/Grid";
 
 import Book from "./Book";
 
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  },
+})
+
 class Shelf extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
@@ -20,9 +26,9 @@ class Shelf extends Component {
     return (
       <React.Fragment>
         <Typography variant="display2">{this.props.label}</Typography>
-        <Grid container spacing={16}>
+        <Grid container className={classes.root} spacing={16}>
           <Grid item xs={12}>
-            <Grid container justify="center" spacing={16}>
+            <Grid container justify="center" spacing={24}>
               {books.map((book, index) => (
                 <Grid item>
                   <Book
@@ -41,4 +47,4 @@ class Shelf extends Component {
   }
 }
 
-export default Shelf;
+export default withStyles(styles)(Shelf);

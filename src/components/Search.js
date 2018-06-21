@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
+import debounce from 'lodash/debounce';
 
 import Typography from "@material-ui/core/Typography";
 
@@ -10,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 class Search extends Component {
   state = {
     books: [],
-    query: ""
+    query: "",
   };
   handleInputChange = event => {
     var value = event.target.value;
@@ -32,10 +33,10 @@ class Search extends Component {
           });
           books.length > 0
             ? this.setState({
-                books: results
+                books: results,
               })
             : this.setState({
-                books: []
+                books: [],
               });
         }
       });
@@ -58,7 +59,7 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {this.state.books.length > 0 && (
+        {this.state.query.length != 0 && !this.state.noResult && (
           <React.Fragment>
             <Typography>Sorry, no results</Typography>
             <Typography>
