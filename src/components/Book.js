@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
 import Typography from '@material-ui/core/Typography';
-import withTheme from '@material-ui/core/styles/withTheme';
-
 import Card from "@material-ui/core/Card";
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 

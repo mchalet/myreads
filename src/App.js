@@ -3,6 +3,7 @@ import { Route, Link } from "react-router-dom";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
 
 import Header from './components/Header';
 import Shelf from "./components/Shelf";
@@ -48,7 +49,9 @@ class App extends Component {
             path="/"
             render={() => (
               <React.Fragment>
-                <Link to="/search">Search</Link>
+                <Link to="/search">
+                <Typography variant="button">Search</Typography>
+                </Link>
                 <Shelf
                   books={this.state.books.filter(book => {
                     return book.shelf === "currentlyReading";
