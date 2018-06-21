@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 
 import Header from './components/Header';
-import Shelf from "./components/Shelf";
+import BookShelf from "./components/BookShelf";
 import Search from "./components/Search";
 
 class App extends Component {
@@ -48,32 +48,7 @@ class App extends Component {
             exact
             path="/"
             render={() => (
-              <React.Fragment>
-                <Link to="/search">
-                <Typography variant="button">Search</Typography>
-                </Link>
-                <Shelf
-                  books={this.state.books.filter(book => {
-                    return book.shelf === "currentlyReading";
-                  })}
-                  label={"Currently Reading"}
-                  handleUpdateBooks={this.handleUpdateBooks}
-                />
-                <Shelf
-                  books={this.state.books.filter(book => {
-                    return book.shelf === "wantToRead";
-                  })}
-                  label={"Want To Read"}
-                  handleUpdateBooks={this.handleUpdateBooks}
-                />
-                <Shelf
-                  books={this.state.books.filter(book => {
-                    return book.shelf === "read";
-                  })}
-                  label={"Read"}
-                  handleUpdateBooks={this.handleUpdateBooks}
-                />
-              </React.Fragment>
+              <BookShelf bookMaster={this.state.books} />
             )}
           />
         </div>
