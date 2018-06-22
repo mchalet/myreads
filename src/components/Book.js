@@ -1,47 +1,44 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from "@material-ui/core/styles";
 
-
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const styles = {
   card: {
-    width: 220,
-    height: 450,
-    display: 'flex',
-    'flex-direction': 'column',
-    'justify-content': 'space-between',
+    width: 200,
   },
   media: {
-    height: '100%',
-    width: '100%',
+    height: 300,
+    paddingTop: '56.25%',
   },
   content: {
-    height: "50%",
-    display: 'flex',
-    'flex-direction': 'column',
-    'margin-bottom': 8,
+    height: 125,
+  },
+  form: {
+    margin: '0 auto',
+    width: '80%',
   },
 };
 
 class Book extends Component {
   state = {
     book: this.props.book
-  }
+  };
 
   handleChangeShelf = e => {
     var newShelf = e.target.value;
     this.props.book.shelf = newShelf;
     this.setState({
       book: this.props.book
-    })
+    });
     this.props.handleUpdateBooks(this.props.book, e.target.value);
   };
 
@@ -51,29 +48,26 @@ class Book extends Component {
 
     return (
       <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={book.imageLinks.thumbnail}
-          />
-          <CardContent className={classes.content}>
-          <Typography variant="body1">{book.title}</Typography>
-          <div>
-            {
-              
-              book.authors.map(author => (
-                <Typography variant="body2" key={author}>{author}</Typography>
-              ))
-            }
-          </div>
-          <form autoComplete="off">
+        <CardMedia
+          className={classes.media}
+          image={book.imageLinks.thumbnail}
+        />
+        <CardContent className={classes.content}>
+          <Typography variant="body2">{book.title}</Typography>
+
+            {book.authors.map(author => (
+              <Typography variant="body1" key={author}>
+                {author}
+              </Typography>
+            ))}
+            </CardContent>
+            <CardActions>
+          <form className={classes.form} autoComplete="off">
             <FormControl>
               <Select
+                className={classes.select}
                 value={book.shelf}
                 onChange={this.handleChangeShelf}
-                inputProps={{
-                  name: 'age',
-                  id: 'age-simple',
-                }}
               >
                 <MenuItem value="currentlyReading">Currently Reading</MenuItem>
                 <MenuItem value="wantToRead">Want to Read</MenuItem>
@@ -82,7 +76,7 @@ class Book extends Component {
               </Select>
             </FormControl>
           </form>
-          </CardContent>
+          </CardActions>
       </Card>
     );
   }
@@ -90,7 +84,7 @@ class Book extends Component {
 
 Book.propTypes = {
   book: PropTypes.object.isRequired,
-  handleUpdateBooks: PropTypes.func,
+  handleUpdateBooks: PropTypes.func
 };
 
 export default withStyles(styles)(Book);
