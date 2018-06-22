@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -10,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { logo } from "../logo.svg";
 
 const styles = {
   card: {

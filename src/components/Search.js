@@ -56,8 +56,7 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {this.state.query.length !== 0 &&
-          !this.state.noResult && (
+        {(this.state.books.length === 0 && !!this.state.query) && (
             <React.Fragment>
               <Typography>Sorry, no results</Typography>
               <Typography>
