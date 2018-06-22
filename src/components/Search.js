@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 import * as BooksAPI from "../BooksAPI";
 import Typography from "@material-ui/core/Typography";
 import Shelf from "./Shelf";
 import TextField from "@material-ui/core/TextField";
+
+const styles = {
+  error: {
+    "text-align": "center",
+  }
+}
 
 class Search extends Component {
   state = {
@@ -41,6 +48,7 @@ class Search extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <TextField
@@ -56,9 +64,9 @@ class Search extends Component {
         />
         {this.state.books.length === 0 &&
           !!this.state.query && (
-            <React.Fragment>
-              <Typography>Sorry, no results</Typography>
-              <Typography>
+            <div className={classes.error}>
+              <Typography variant="title">Sorry, no results!</Typography>
+              <Typography variant="subheading">
                 Please try searching for one of these terms:
               </Typography>
               <Typography>
@@ -79,7 +87,7 @@ class Search extends Component {
                 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web
                 Development', 'iOS'
               </Typography>
-            </React.Fragment>
+            </div>
           )}
       </div>
     );
@@ -91,4 +99,4 @@ Search.propTypes = {
   handleUpdateBooks: PropTypes.func.isRequired
 };
 
-export default Search;
+export default withStyles(styles)(Search);
