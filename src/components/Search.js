@@ -8,7 +8,8 @@ import TextField from "@material-ui/core/TextField";
 class Search extends Component {
   state = {
     books: [],
-    query: ""
+    query: "",
+    results: true
   };
   handleInputChange = event => {
     var value = event.target.value;
