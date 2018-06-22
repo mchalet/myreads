@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import "./App.css";
 import * as BooksAPI from "./BooksAPI";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
@@ -33,30 +32,26 @@ class App extends Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <div className="App">
-          <Header />
-          <div className="header-container">
-            <Route
-              path="/search"
-              render={() => (
-                <Search
-                  bookMaster={this.state.books}
-                  handleUpdateBooks={this.handleUpdateBooks}
-                />
-              )}
+        <Header />
+        <Route
+          path="/search"
+          render={() => (
+            <Search
+              bookMaster={this.state.books}
+              handleUpdateBooks={this.handleUpdateBooks}
             />
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <BookShelf
-                  bookMaster={this.state.books}
-                  handleUpdateBooks={this.handleUpdateBooks}
-                />
-              )}
+          )}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <BookShelf
+              bookMaster={this.state.books}
+              handleUpdateBooks={this.handleUpdateBooks}
             />
-          </div>
-        </div>
+          )}
+        />
       </React.Fragment>
     );
   }
