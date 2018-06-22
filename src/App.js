@@ -30,15 +30,12 @@ class App extends Component {
   };
 
   render() {
-    var style = {
-      margin: "0 20px 0 20px"
-    };
     return (
       <React.Fragment>
       <CssBaseline/>
       <div className="App">
         <Header />
-        <div className="header-container" style={style}>
+        <div className="header-container">
           <Route
             path="/search"
             render={() => <Search bookMaster={this.state.books} handleUpdateBooks={this.handleUpdateBooks} />}

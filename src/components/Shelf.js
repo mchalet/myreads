@@ -9,7 +9,6 @@ import Book from "./Book";
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    margin: 20,
   },
 })
 
