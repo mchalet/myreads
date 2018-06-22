@@ -6,8 +6,13 @@ import Grid from "@material-ui/core/Grid";
 import Book from "./Book";
 
 const styles = theme => ({
+  label: {
+    "margin-top": theme.spacing.unit,
+  },
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    "margin-top": theme.spacing.unit,
+    "margin-bottom": theme.spacing.unit,
   }
 });
 
@@ -18,7 +23,9 @@ class Shelf extends Component {
 
     return (
       <React.Fragment>
-        <Typography variant="display2">{this.props.label}</Typography>
+        <Typography variant="display2" align="center" className={classes.label}>
+          {this.props.label}
+        </Typography>
         <Grid container className={classes.root} spacing={16}>
           <Grid item xs={12}>
             <Grid container justify="center" spacing={24}>
@@ -35,6 +42,7 @@ class Shelf extends Component {
             </Grid>
           </Grid>
         </Grid>
+        <hr/>
       </React.Fragment>
     );
   }
