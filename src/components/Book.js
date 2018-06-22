@@ -38,7 +38,7 @@ class Book extends Component {
   };
 
   handleChangeShelf = e => {
-    var newShelf = e.target.value;
+    const newShelf = e.target.value;
     this.props.book.shelf = newShelf;
     this.setState({
       book: this.props.book
@@ -48,7 +48,7 @@ class Book extends Component {
 
   render() {
     const { classes } = this.props;
-    var book = this.props.book;
+    const book = this.props.book;
 
     return (
       <Card className={classes.card}>

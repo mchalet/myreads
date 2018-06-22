@@ -20,7 +20,7 @@ class Search extends Component {
   };
 
   handleInputChange = event => {
-    var value = event.target.value;
+    const value = event.target.value;
     value.length === 0
       ? this.setState({ query: "", books: [] })
       : this.setState({ query: value });

@@ -19,7 +19,7 @@ const styles = theme => ({
 class Shelf extends Component {
   render() {
     const { classes } = this.props;
-    let books = this.props.books;
+    const books = this.props.books;
 
     return (
       <React.Fragment>
