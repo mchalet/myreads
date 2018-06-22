@@ -13,7 +13,7 @@ class BookShelf extends Component {
           label={"Currently Reading"}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        <hr/>
+        <hr />
         <Shelf
           books={this.props.bookMaster.filter(book => {
             return book.shelf === "wantToRead";
@@ -21,7 +21,7 @@ class BookShelf extends Component {
           label={"Want To Read"}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        <hr/>
+        <hr />
         <Shelf
           books={this.props.bookMaster.filter(book => {
             return book.shelf === "read";

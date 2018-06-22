@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { withRouter } from "react-router";
 import AppBar from "@material-ui/core/AppBar";
@@ -22,11 +22,7 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="title"
-            color="inherit"
-            className={classes.flex}
-          >
+          <Typography variant="title" color="inherit" className={classes.flex}>
             My Reads
           </Typography>
           {location.pathname !== "/search" ? (

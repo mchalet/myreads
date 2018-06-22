@@ -7,12 +7,12 @@ import Book from "./Book";
 
 const styles = theme => ({
   label: {
-    "margin-top": theme.spacing.unit,
+    "margin-top": theme.spacing.unit
   },
   root: {
     flexGrow: 1,
     "margin-top": theme.spacing.unit,
-    "margin-bottom": theme.spacing.unit,
+    "margin-bottom": theme.spacing.unit
   }
 });
 

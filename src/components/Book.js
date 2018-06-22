@@ -16,19 +16,19 @@ const styles = {
   },
   media: {
     height: 300,
-    paddingTop: "56.25%",
+    paddingTop: "56.25%"
   },
   nomedia: {
-    height: 300,
+    height: 300
   },
   content: {
     height: 125
   },
   form: {
     margin: "0 auto",
-    display: 'flex',
-    'justify-content': 'center', 
-    'align-items': 'center',
+    display: "flex",
+    "justify-content": "center",
+    "align-items": "center"
   }
 };
 

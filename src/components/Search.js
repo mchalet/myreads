@@ -8,9 +8,9 @@ import TextField from "@material-ui/core/TextField";
 
 const styles = {
   error: {
-    "text-align": "center",
+    "text-align": "center"
   }
-}
+};
 
 class Search extends Component {
   state = {
@@ -18,6 +18,7 @@ class Search extends Component {
     query: "",
     results: true
   };
+
   handleInputChange = event => {
     var value = event.target.value;
     value.length === 0
@@ -25,6 +26,7 @@ class Search extends Component {
       : this.setState({ query: value });
     this.handleSearch(value);
   };
+  
   handleSearch = query => {
     query.length !== 0 &&
       BooksAPI.search(query).then(books => {
