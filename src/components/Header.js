@@ -16,38 +16,32 @@ const styles = {
   }
 };
 
-class Header extends Component {
-  render() {
-    const { classes, location } = this.props;
-    return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
-              My Reads
-            </Typography>
-            {location.pathname !== "/search" ? (
-              <Link to="/search">
-                <Button onClick={this.handleClick} color="inherit">
-                  Search
-                </Button>
-              </Link>
-            ) : (
-              <Link to="/">
-                <Button onClick={this.handleClick} color="inherit">
-                  Back
-                </Button>
-              </Link>
-            )}
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  }
+function Header(props) {
+  const { classes, location } = props;
+  return (
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography
+            variant="title"
+            color="inherit"
+            className={classes.flex}
+          >
+            My Reads
+          </Typography>
+          {location.pathname !== "/search" ? (
+            <Link to="/search">
+              <Button color="inherit">Search</Button>
+            </Link>
+          ) : (
+            <Link to="/">
+              <Button color="inherit">Back</Button>
+            </Link>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
 
 export default withRouter(withStyles(styles)(Header));

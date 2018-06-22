@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import * as BooksAPI from "../BooksAPI";
-
 import Typography from "@material-ui/core/Typography";
-
-import { Link } from "react-router-dom";
 import Shelf from "./Shelf";
 import TextField from "@material-ui/core/TextField";
 
@@ -56,7 +53,8 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {(this.state.books.length === 0 && !!this.state.query) && (
+        {this.state.books.length === 0 &&
+          !!this.state.query && (
             <React.Fragment>
               <Typography>Sorry, no results</Typography>
               <Typography>
