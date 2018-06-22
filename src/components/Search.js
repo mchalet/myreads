@@ -45,9 +45,6 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Link to="/">
-          <Typography variant="button">Back to Shelves</Typography>
-        </Link>
         <TextField
           type="text"
           value={this.state.query}

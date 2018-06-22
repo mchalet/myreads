@@ -55,7 +55,7 @@ class Book extends Component {
         <CardContent className={classes.content}>
           <Typography variant="body2">{book.title}</Typography>
 
-            {book.authors.map(author => (
+            {!!book.authors && book.authors.map(author => (
               <Typography variant="body1" key={author}>
                 {author}
               </Typography>
