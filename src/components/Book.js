@@ -4,28 +4,35 @@ import { withStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
-import CardActions from '@material-ui/core/CardActions';
+import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import { logo } from "../logo.svg";
 
 const styles = {
   card: {
-    width: 200,
+    width: 200
   },
   media: {
     height: 300,
-    paddingTop: '56.25%',
+    paddingTop: "56.25%"
+  },
+  nomedia: {
+    height: 300,
+    display: 'flex',
+    'justify-content': 'center', 
+    'align-items': 'center',
   },
   content: {
-    height: 125,
+    height: 125
   },
   form: {
-    margin: '0 auto',
-    width: '80%',
-  },
+    margin: "0 auto",
+    width: "80%"
+  }
 };
 
 class Book extends Component {
@@ -48,20 +55,27 @@ class Book extends Component {
 
     return (
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={book.imageLinks.thumbnail}
-        />
+        {!!book.imageLinks ? (
+          <CardMedia
+            className={classes.media}
+            image={book.imageLinks.thumbnail}
+          />
+        ) : (
+          <div className={classes.nomedia}>
+            <Typography variant="body2">No Image</Typography>
+          </div>
+        )}
         <CardContent className={classes.content}>
           <Typography variant="body2">{book.title}</Typography>
 
-            {!!book.authors && book.authors.map(author => (
+          {!!book.authors &&
+            book.authors.map(author => (
               <Typography variant="body1" key={author}>
                 {author}
               </Typography>
             ))}
-            </CardContent>
-            <CardActions>
+        </CardContent>
+        <CardActions>
           <form className={classes.form} autoComplete="off">
             <FormControl>
               <Select
@@ -76,7 +90,7 @@ class Book extends Component {
               </Select>
             </FormControl>
           </form>
-          </CardActions>
+        </CardActions>
       </Card>
     );
   }
