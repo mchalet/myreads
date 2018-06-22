@@ -42,7 +42,6 @@ class Shelf extends Component {
             </Grid>
           </Grid>
         </Grid>
-        <hr/>
       </React.Fragment>
     );
   }
