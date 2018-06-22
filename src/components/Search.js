@@ -11,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 class Search extends Component {
   state = {
     books: [],
-    query: "",
+    query: ""
   };
   handleInputChange = event => {
     var value = event.target.value;
@@ -21,7 +21,7 @@ class Search extends Component {
     this.handleSearch(value);
   };
   handleSearch = query => {
-    query.length != 0 &&
+    query.length !== 0 &&
       BooksAPI.search(query).then(books => {
         if (!!books && books.length) {
           const results = books.map(book => {
@@ -33,10 +33,10 @@ class Search extends Component {
           });
           books.length > 0
             ? this.setState({
-                books: results,
+                books: results
               })
             : this.setState({
-                books: [],
+                books: []
               });
         }
       });
@@ -59,31 +59,33 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {this.state.query.length != 0 && !this.state.noResult && (
-          <React.Fragment>
-            <Typography>Sorry, no results</Typography>
-            <Typography>
-              Please try searching for one of these terms:
-            </Typography>
-            <Typography>
-              'Android', 'Art', 'Artificial Intelligence', 'Astronomy',
-              'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography',
-              'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics',
-              'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design',
-              'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas',
-              'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First',
-              'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer',
-              'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri',
-              'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage',
-              'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting',
-              'Philosophy', 'Photography', 'Poetry', 'Production',
-              'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling',
-              'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming',
-              'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual
-              Reality', 'Web Development', 'iOS'
-            </Typography>
-          </React.Fragment>
-        )}
+        {this.state.query.length !== 0 &&
+          !this.state.noResult && (
+            <React.Fragment>
+              <Typography>Sorry, no results</Typography>
+              <Typography>
+                Please try searching for one of these terms:
+              </Typography>
+              <Typography>
+                'Android', 'Art', 'Artificial Intelligence', 'Astronomy',
+                'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography',
+                'Brief', 'Business', 'Camus', 'Cervantes', 'Christie',
+                'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai',
+                'Design', 'Development', 'Digital Marketing', 'Drama',
+                'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy',
+                'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future',
+                'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen',
+                'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn',
+                'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money',
+                'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography',
+                'Poetry', 'Production', 'Programming', 'React', 'Redux',
+                'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction',
+                'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time',
+                'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web
+                Development', 'iOS'
+              </Typography>
+            </React.Fragment>
+          )}
       </div>
     );
   }

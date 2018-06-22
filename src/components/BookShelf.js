@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import Typography from "@material-ui/core/Typography";
-
 import Shelf from "./Shelf";
 
 class BookShelf extends Component {
@@ -35,7 +33,8 @@ class BookShelf extends Component {
 }
 
 BookShelf.propTypes = {
-  bookMaster: PropTypes.array.isRequired
+  bookMaster: PropTypes.array.isRequired,
+  handleUpdateBooks: PropTypes.func.isRequired,
 };
 
 export default BookShelf;

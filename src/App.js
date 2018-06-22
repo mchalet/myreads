@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 import * as BooksAPI from "./BooksAPI";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-import Header from './components/Header';
+import Header from "./components/Header";
 import BookShelf from "./components/BookShelf";
 import Search from "./components/Search";
 
@@ -32,24 +32,32 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-      <CssBaseline/>
-      <div className="App">
-        <Header />
-        <div className="header-container">
-          <Route
-            path="/search"
-            render={() => <Search bookMaster={this.state.books} handleUpdateBooks={this.handleUpdateBooks} />}
-          />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <BookShelf bookMaster={this.state.books} handleUpdateBooks={this.handleUpdateBooks} />
-            )}
-          />
+        <CssBaseline />
+        <div className="App">
+          <Header />
+          <div className="header-container">
+            <Route
+              path="/search"
+              render={() => (
+                <Search
+                  bookMaster={this.state.books}
+                  handleUpdateBooks={this.handleUpdateBooks}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <BookShelf
+                  bookMaster={this.state.books}
+                  handleUpdateBooks={this.handleUpdateBooks}
+                />
+              )}
+            />
+          </div>
         </div>
-      </div>
-    </React.Fragment>
+      </React.Fragment>
     );
   }
 }

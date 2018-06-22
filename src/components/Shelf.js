@@ -3,17 +3,15 @@ import { PropTypes } from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-
 import Book from "./Book";
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-  },
-})
+    flexGrow: 1
+  }
+});
 
 class Shelf extends Component {
-
   render() {
     const { classes } = this.props;
     let books = this.props.books;
@@ -45,7 +43,7 @@ class Shelf extends Component {
 Shelf.propTypes = {
   books: PropTypes.array.isRequired,
   label: PropTypes.string.isRequired,
-  handleUpdateBooks: PropTypes.func,
+  handleUpdateBooks: PropTypes.func
 };
 
 export default withStyles(styles)(Shelf);
