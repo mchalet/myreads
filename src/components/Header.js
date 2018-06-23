@@ -13,7 +13,11 @@ const styles = {
   },
   flex: {
     flex: 1
-  }
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'unset',
+  },
 };
 
 function Header(props) {
@@ -26,12 +30,15 @@ function Header(props) {
             My Reads
           </Typography>
           {location.pathname !== "/search" ? (
-            <Link to="/search">
-              <Button color="inherit">Search</Button>
+            <Link to="/search" className={classes.link}>
+              <Button color="inherit">Search
+              </Button>
             </Link>
           ) : (
-            <Link to="/">
-              <Button color="inherit">Back</Button>
+            <Link to="/" className={classes.link}>
+              <Button color="inherit">
+                <Typography variant="button" color="inherit">Back</Typography>
+              </Button>
             </Link>
           )}
         </Toolbar>
