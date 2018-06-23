@@ -15,9 +15,9 @@ const styles = {
     flex: 1
   },
   link: {
-    textDecoration: 'none',
-    color: 'unset',
-  },
+    textDecoration: "none",
+    color: "unset"
+  }
 };
 
 function Header(props) {
@@ -31,13 +31,14 @@ function Header(props) {
           </Typography>
           {location.pathname !== "/search" ? (
             <Link to="/search" className={classes.link}>
-              <Button color="inherit">Search
-              </Button>
+              <Button color="inherit">Search</Button>
             </Link>
           ) : (
             <Link to="/" className={classes.link}>
               <Button color="inherit">
-                <Typography variant="button" color="inherit">Back</Typography>
+                <Typography variant="button" color="inherit">
+                  Back
+                </Typography>
               </Button>
             </Link>
           )}
