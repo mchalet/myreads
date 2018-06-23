@@ -23,7 +23,7 @@ class Shelf extends Component {
 
     return (
       <React.Fragment>
-        <Typography variant="display2" align="center" className={classes.label}>
+        <Typography variant="display2" color="primary" align="center" className={classes.label}>
           {this.props.label}
         </Typography>
         <Grid container className={classes.root} spacing={16}>
