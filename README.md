@@ -1,5 +1,7 @@
 # My Reads - Udacity Project #1
-Built with `create-react-app`.
+
+## Description
+This is my take on the MyReads app. MyReads is a bookshelf app with the purpose of allowing users to search for and categorize books they are reading, want to read, or have read. 
 
 ## Getting Started
 1. Run `git clone https://github.com/mchalet/myreads.git` to clone this repository.

@@ -49,7 +49,7 @@ class Shelf extends Component {
 
 Shelf.propTypes = {
   books: PropTypes.array.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   handleUpdateBooks: PropTypes.func
 };
 
