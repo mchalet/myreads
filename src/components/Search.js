@@ -34,6 +34,7 @@ class Search extends Component {
     query.length !== 0 &&
       BooksAPI.search(query).then(books => {
         books.error && this.setState({books: []});
+        // Merge shelf state with searched books.
         if (!!books && books.length) {
           const results = books.map(book => {
             const existingBook = this.props.bookMaster.find(
