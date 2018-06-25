@@ -4,31 +4,25 @@ import Shelf from "./Shelf";
 
 class BookShelf extends Component {
   render() {
+    const shelves = {
+      currentlyReading: ['Currently Reading', 'currentlyReading'],
+      wantToRead: ['Want to Read', 'wantToRead'],
+      read: ['Read', 'read']
+    }
     return (
       <React.Fragment>
-        <Shelf
-          books={this.props.bookMaster.filter(book => {
-            return book.shelf === "currentlyReading";
-          })}
-          label={"Currently Reading"}
-          handleUpdateBooks={this.props.handleUpdateBooks}
-        />
-        <hr />
-        <Shelf
-          books={this.props.bookMaster.filter(book => {
-            return book.shelf === "wantToRead";
-          })}
-          label={"Want To Read"}
-          handleUpdateBooks={this.props.handleUpdateBooks}
-        />
-        <hr />
-        <Shelf
-          books={this.props.bookMaster.filter(book => {
-            return book.shelf === "read";
-          })}
-          label={"Read"}
-          handleUpdateBooks={this.props.handleUpdateBooks}
-        />
+      { Object.keys(shelves).map((shelf) =>
+        <div key={shelf}>
+          <Shelf 
+            books={this.props.bookMaster.filter(book => {
+              return book.shelf === shelves[shelf][1];
+            })}
+            label={shelves[shelf][0]}
+            handleUpdateBooks={this.props.handleUpdateBooks}
+          />
+          <hr />
+        </div>
+      )}
       </React.Fragment>
     );
   }
