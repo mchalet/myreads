@@ -9,6 +9,9 @@ import TextField from "@material-ui/core/TextField";
 const styles = {
   error: {
     "text-align": "center"
+  },
+  search: {
+    textAlign: "center"
   }
 };
 
@@ -26,10 +29,11 @@ class Search extends Component {
       : this.setState({ query: value });
     this.handleSearch(value);
   };
-  
+  // Query API for books. 
   handleSearch = query => {
     query.length !== 0 &&
       BooksAPI.search(query).then(books => {
+        books.error && this.setState({books: []});
         if (!!books && books.length) {
           const results = books.map(book => {
             const existingBook = this.props.bookMaster.find(
@@ -38,7 +42,8 @@ class Search extends Component {
             book.shelf = !!existingBook ? existingBook.shelf : "none";
             return book;
           });
-          books.length > 0
+          console.log(results)
+          results.length > 0 
             ? this.setState({
                 books: results
               })
@@ -55,6 +60,7 @@ class Search extends Component {
       <div>
         <TextField
           type="text"
+          className={classes.search}
           value={this.state.query}
           onChange={this.handleInputChange}
           placeholder="Search"
@@ -64,7 +70,8 @@ class Search extends Component {
           books={this.state.books}
           handleUpdateBooks={this.props.handleUpdateBooks}
         />
-        {this.state.books.length === 0 &&
+        {/*Dynamically render error message*/
+        this.state.books.length === 0 &&
           !!this.state.query && (
             <div className={classes.error}>
               <Typography variant="title">Sorry, no results!</Typography>
