@@ -42,7 +42,6 @@ class Search extends Component {
             book.shelf = !!existingBook ? existingBook.shelf : "none";
             return book;
           });
-          console.log(results)
           results.length > 0 
             ? this.setState({
                 books: results
