@@ -13,3 +13,4 @@ This is my take on the MyReads app. MyReads is a bookshelf app with the purpose 
 
 1. Clean up UI.
 2. Debounce Search component error message.
+3. Implement drag & drop between shelves.
